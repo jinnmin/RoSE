@@ -608,8 +608,10 @@ void YMODEM::do_work()
         // sync after copy completed
         cmd.clear();
         cmd.append("sync");
-        system(cmd.toStdString().c_str());  // sync
-        system(cmd.toStdString().c_str());  // sync
+        int temp = system(cmd.toStdString().c_str());  // sync
+        temp = system(cmd.toStdString().c_str());  // sync
+
+        qDebug() << __func__ << "temp: " << temp;
     }
     else {
         qDebug() << "file copy has failed";
@@ -671,13 +673,15 @@ void YMODEM::do_work()
         cmd.append("rm -f");
         cmd.append(" ");
         cmd.append(fwUpdateFile);
-        system(cmd.toStdString().c_str());
+        int temp = system(cmd.toStdString().c_str());
 
         // sync after remove completed
         cmd.clear();
         cmd.append("sync");
-        system(cmd.toStdString().c_str());  // sync
-        system(cmd.toStdString().c_str());  // sync
+        temp = system(cmd.toStdString().c_str());  // sync
+        temp = system(cmd.toStdString().c_str());  // sync
+
+        qDebug() << __func__ << temp;
     }
 }
 
@@ -809,13 +813,15 @@ void YMODEM::do_work_rms()
         cmd.append("rm -f");
         cmd.append(" ");
         cmd.append(fwUpdateFile);
-        system(cmd.toStdString().c_str());
+        int temp = system(cmd.toStdString().c_str());
 
         // sync after remove completed
         cmd.clear();
         cmd.append("sync");
-        system(cmd.toStdString().c_str());  // sync
-        system(cmd.toStdString().c_str());  // sync
+        temp = system(cmd.toStdString().c_str());  // sync
+        temp = system(cmd.toStdString().c_str());  // sync
+
+        qDebug() << __func__ << "temp: " << temp;
     }
 }
 

@@ -230,7 +230,6 @@ void Receiver::packetChecker(QByteArray _recvData)
 {
     quint16 etx = 0;
     quint16 fullPacketEtx = 0;
-    int i;
     unsigned long recvSize = _recvData.size();
 #if defined(KZ_UI_DEBUG)
     qDebug() << __func__ << "4 In(), recvData Size : " << recvSize;

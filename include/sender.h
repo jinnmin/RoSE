@@ -21,12 +21,7 @@ public:
     void cmdNeedleClean(int);
     void cmdSetAmingBeam(int);
     void cmdUiCurrDate(int, int, int);  // mDateYear, mDateMon, mDateDay
-    void cmdOperationLevel(int, int);
-    void cmdOperationBuzzerMdoe(int, int);
-    void cmdSendOpertaionTime(int, int, int, int, int, int);
-    void cmdReqTotalOperationTime(int);
     void cmdSetOperationStartStop(int, int);
-    void cmdResetTotalOperationTime(int);
     void cmdSetAckToMCU(quint16 resmsg);
     void cmdConnect();
     void cmdReboot(int);

@@ -136,15 +136,6 @@ public:
     bool getUpdateStatus() const;
     Q_INVOKABLE void setSystemReboot(bool);
 
-    Q_INVOKABLE void sendOperTime(int,int, int, int, int);
-    void sendOperationTime(int, int, int, int, int, int);
-
-    Q_INVOKABLE void reqTotalOperTime(int hp);
-    void reqTotalOperationTime(int hp);
-
-    Q_INVOKABLE void setResetOperTime(int);
-    void setResetTotalOperTime(int);
-
 #if defined(KZ_UI)  // JOON_ADD
     Q_INVOKABLE void saveCommonSet(QString, QString, QString);
 

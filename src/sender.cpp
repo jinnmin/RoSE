@@ -67,73 +67,6 @@ quint16 setSendHpInfo (int hp) {
 
 #endif
 
-
-
-void Sender::cmdOperationLevel(int hp, int level)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__ << "hp : " << hp << "level : " << level;
-#endif
-    quint8 operationLevel[3] = {0};
-    quint16 hpBd = 0;
-
-    qDebug() << __func__ << "*  cmdOperationLevel hp : " << hp;
-
-    hpBd = setSendHpInfo(hp);
-
-    operationLevel[0] = (qint8)((hpBd >> 8) & 0xFF);
-    operationLevel[1] = (qint8)(hpBd & 0xFF);
-    operationLevel[2] = (qint8)level;
-    // writeAndRead(DF_MAIN_BD, REQ_SET_LEVEL, sizeof(operationLevel), (quint8 *)&operationLevel);
-
-}
-
-void Sender::cmdOperationBuzzerMdoe(int hp, int buzzerMode)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__ << "hp : " << hp << "buzzerMode : " << buzzerMode;
-#endif
-
-    quint8 operationBuzzerMode[3] = {0};
-    quint16 hpBd = 0;
-
-    hpBd = setSendHpInfo(hp);
-
-    operationBuzzerMode[0] = (qint8)((hpBd >> 8) & 0xFF);
-    operationBuzzerMode[1] = (qint8)(hpBd & 0xFF);
-    operationBuzzerMode[2] = (qint8)buzzerMode;
-    // writeAndRead(DF_MAIN_BD, REQ_SET_BUZZER_MODE, sizeof(operationBuzzerMode), (quint8 *)&operationBuzzerMode);
-
-}
-
-void Sender::cmdSendOpertaionTime(int hp, int ttmin, int ttsec, int tipRemainHH, int tipRemainMM, int tipRemainSS)
-{
-
-    quint8 oeprationTime[7] = {0};
-    quint16 hpBd = 0;
-
-    qDebug() << __func__ << "*  cmdSendOpertaionTime hp : " << hp;
-
-    hpBd = setSendHpInfo(hp);
-
-    oeprationTime[0] = (qint8)((hpBd >> 8) & 0xFF);
-    oeprationTime[1] = (qint8)(hpBd & 0xFF);
-    oeprationTime[2] = (qint8)ttmin;
-    oeprationTime[3] = (qint8)ttsec;
-    oeprationTime[4] = (qint8)tipRemainHH;
-    oeprationTime[5] = (qint8)tipRemainMM;
-    oeprationTime[6] = (qint8)tipRemainSS;
-    // writeAndRead(DF_MAIN_BD, REQ_SEND_OPERATION_TIME, sizeof(oeprationTime), (quint8 *)&oeprationTime);
-
-}
-
-void Sender::cmdReqTotalOperationTime(int hp)
-{
-    qDebug() << __func__ << "hp : " << hp;
-    quint8 hpInfo = (quint8) hp;
-    // writeAndRead(DF_MAIN_BD, REQ_TOTAL_OPERATION_TIME, sizeof(hpInfo), (quint8 *)&hpInfo);
-}
-
 void Sender::cmdSetOperationStartStop(int hp, int startStop)
 {
 #if defined(KZ_UI_DEBUG)
@@ -151,14 +84,6 @@ void Sender::cmdSetOperationStartStop(int hp, int startStop)
     operationStartStop[1] = (qint8)(hpBd & 0xFF);
     operationStartStop[2] = (qint8)startStop;
     // writeAndRead(DF_MAIN_BD, REQ_SET_LEVEL, sizeof(operationStartStop), (quint8 *)&operationStartStop);
-
-}
-
-void Sender::cmdResetTotalOperationTime(int hp)
-{
-    qDebug() << __func__ << "hp : " << hp;
-    quint8 hpInfo = (quint8) hp;
-//     writeAndRead(DF_MAIN_BD, REQ_RESET_TOTAL_OPERATION_TIME, sizeof(hpInfo), (quint8 *)&hpInfo);
 
 }
 

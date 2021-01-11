@@ -270,7 +270,7 @@ int SwUpdater::copyUpdateFiles(QString filepath, QString filename)
     cmd.append(" ");
     cmd.append(TARGET_PATH);
     qDebug() << "cmd path : " << cmd;
-    system(cmd.toStdString().c_str());
+    ret = system(cmd.toStdString().c_str());
 
     // comparison md5sum target files
     target.append(TARGET_PATH);
@@ -306,12 +306,14 @@ void SwUpdater::systemReboot()
     QString cmd;
     // sync
     cmd.append("sync");
-    system(cmd.toStdString().c_str());
+    int ret = system(cmd.toStdString().c_str());
     // sync
-    system(cmd.toStdString().c_str());
+    ret = system(cmd.toStdString().c_str());
 
     // reboot
     cmd.clear();
     cmd.append("sudo reboot");
-    system(cmd.toStdString().c_str());
+    ret = system(cmd.toStdString().c_str());
+
+    qDebug() << "cmd result : " << ret;
 }

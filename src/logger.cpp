@@ -137,13 +137,14 @@ int Logger::copyFiles()
     cmd.append(usb);
     qDebug() << "cmd path : " << cmd;
     ret = system(cmd.toStdString().c_str());
-    qDebug() << "cmd result : " << ret;
+
 
     cmd.clear();
     cmd.append("sync");
-    system(cmd.toStdString().c_str());  // sync
-    system(cmd.toStdString().c_str());  // sync
+    ret = system(cmd.toStdString().c_str());  // sync
+    ret = system(cmd.toStdString().c_str());  // sync
 
+    qDebug() << "cmd result : " << ret;
 
     // copy comand return values :: (0) -> success, (0 < result) -> fail.
     if (ret == 0) {

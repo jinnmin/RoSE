@@ -833,39 +833,6 @@ void UserIface::setTip(int sn, int hh, int mm)
     setTipSettings(sn, hh, mm);
 }
 
-
-void UserIface::sendOperationTime(int hp, int ttmin, int ttsec, int tipRemainHH, int tipRemainMM, int tipRemainSS)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__;
-#endif
-    if (getConnectedSerial())
-    {
-        mSender->cmdSendOpertaionTime(hp, ttmin, ttsec, tipRemainHH, tipRemainMM, tipRemainSS);
-    }
-}
-
-void UserIface::sendOperTime(int ttmin, int ttsec, int tipRemainHH, int tipRemainMM, int tipRemainSS)
-{
-    sendOperationTime(mCurHpInfo, ttmin, ttsec, tipRemainHH, tipRemainMM, tipRemainSS);
-}
-
-void UserIface::reqTotalOperationTime(int hp)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__;
-#endif
-    if (getConnectedSerial())
-    {
-        mSender->cmdReqTotalOperationTime(hp);
-    }
-}
-
-void UserIface::reqTotalOperTime(int hp)
-{
-    reqTotalOperationTime(hp);
-}
-
 bool UserIface::getUpdateStatus() const
 {
     return mIsUpdateStatus;
@@ -992,24 +959,6 @@ void UserIface::setStatus(int standby_ready)
 
     }
 }
-
-void UserIface::setResetTotalOperTime(int hp)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__;
-#endif
-    if (getConnectedSerial())
-    {
-        mSender->cmdResetTotalOperationTime(hp);
-    }
-}
-
-void UserIface::setResetOperTime(int hp)
-{
-    mResetTotalTimeHpInfo = hp;
-    setResetTotalOperTime(hp);
-}
-
 
 void UserIface::setAckToMCU(quint16 resMsg)
 {
@@ -1288,7 +1237,7 @@ void UserIface::setSystemTime(int yy, int mm, int dd, int h, int m, int s)
     QString timeAndDate;
     char timeString[128] = {0};
 
-    // int result;
+     int result;
 
     qDebug() << "system time 1 = " << yy << mm << dd << h << m << s;
 
@@ -1314,7 +1263,8 @@ void UserIface::setSystemTime(int yy, int mm, int dd, int h, int m, int s)
     timeAndDate.append("\"");
     qDebug() << " time : " << timeAndDate.toStdString().c_str();
 
-    system(timeAndDate.toStdString().c_str());
+    result = system(timeAndDate.toStdString().c_str());
+    qDebug() << " result : " << result;
 
     mSystemTimeSettingStatus = true;
 
