@@ -21,7 +21,6 @@ public:
     void cmdNeedleClean(int);
     void cmdSetAmingBeam(int);
     void cmdUiCurrDate(int, int, int);  // mDateYear, mDateMon, mDateDay
-    void cmdBuzzerSound(int, int);
     void cmdOperationLevel(int, int);
     void cmdOperationBuzzerMdoe(int, int);
     void cmdSendOpertaionTime(int, int, int, int, int, int);

@@ -439,15 +439,6 @@ print("2.Home onResCmdFromPower  cmd: ", cmd, "getSet: ", getSet, "data1: ", dat
 
                         sendPageInfo()
 
-//                        // SKW 2019-03-20 로딩페이지가 끝날 때까지 펌웨어가 연결되지 않으면 경고창 출력
-//                        if(fwVersionNo.text == officialFwVer){  //fwVersionString: "0.001", officialFwVer: "0.001"
-//                            print("F/W CONNECTION ERRER")
-//                            popupRect.visible = true
-//                            updateTitleText.text = "Warning"
-//                            updateText.text = "F/W Communication Warning \n\nCheck FW MAIN Ver";
-
-//// JOON_TEST                            UserIface.db_save_errorCode_info(0x0020); //SKW 2019-05-07 주요 목적: 소프트웨어에서 펌웨어 연결 여부를 확인 후 에러코드 기록
-//                        }// SKW 2019-03-20
                     }
 
                     skipDisplyCnt++

@@ -833,37 +833,6 @@ void UserIface::setTip(int sn, int hh, int mm)
     setTipSettings(sn, hh, mm);
 }
 
-void UserIface::setOperationLevel(int hp, int level)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__;
-#endif
-    if (getConnectedSerial())
-    {
-        mSender->cmdOperationLevel(hp, level);
-    }
-}
-
-void UserIface::setOperLevel(int level)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__ << "mCurHpInfo " << hex << mCurHpInfo << "mOperationLevel " << mPowerTemp;
-#endif
-
-    mOperationLevel = level;
-    setOperationLevel(mCurHpInfo, level);
-}
-
-void UserIface::setOperationBuzzerMode(int hp, int mode)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__;
-#endif
-    if (getConnectedSerial())
-    {
-        mSender->cmdOperationBuzzerMdoe(hp, mode);
-    }
-}
 
 void UserIface::sendOperationTime(int hp, int ttmin, int ttsec, int tipRemainHH, int tipRemainMM, int tipRemainSS)
 {
@@ -930,11 +899,6 @@ void UserIface::getConnectedHP()
     mSender->cmdGetConnectedHP();
 }
 #endif
-
-void UserIface::setOperBuzzerMode(int mode)
-{
-    setOperationBuzzerMode(mCurHpInfo, mode);
-}
 
 int UserIface::getPageNo()
 {

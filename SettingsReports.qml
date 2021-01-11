@@ -19,7 +19,6 @@ Item {
 
 
     function f_open() {
-        print (" Dfit HandPiece ccdSettingContainer f_open mode: ")
         visible = true
 
     }

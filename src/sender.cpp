@@ -24,7 +24,7 @@ void Sender::cmdUiPageInfo(int _pageNo)
 #if defined(KZ_UI_DEBUG)
     qDebug() << __func__ << "pageinfo : " << _pageNo;
 #endif
-    quint8 pageInfo = (quint8) _pageNo;
+//    quint8 pageInfo = (quint8) _pageNo;
 
     // writeAndRead(DF_MAIN_BD, REQ_UI_PAGE_INFO, sizeof(pageInfo), (quint8 *)&pageInfo);
 }
@@ -68,26 +68,6 @@ quint16 setSendHpInfo (int hp) {
 #endif
 
 
-void Sender::cmdBuzzerSound(int hp, int mode)
-{
-#if defined(KZ_UI_DEBUG)
-    qDebug() << __func__ << "hp : " << hp << "mode : " << mode;
-#endif
-
-    quint8 buzzerMode[3] = {0};
-    quint16 hpBd = 0;
-
-    qDebug() << __func__ << "*  cmdBuzzerSound hp : " << hp;
-
-    hpBd = setSendHpInfo(hp);
-
-    buzzerMode[0] = (qint8)((hpBd >> 8) & 0xFF);
-    buzzerMode[1] = (qint8)(hpBd & 0xFF);
-    buzzerMode[2] = (qint8)mode;
-
-    // writeAndRead(DF_MAIN_BD, REQ_SET_BUZZER_SOUND, sizeof(buzzerMode), (quint8 *)&buzzerMode);
-
-}
 
 void Sender::cmdOperationLevel(int hp, int level)
 {

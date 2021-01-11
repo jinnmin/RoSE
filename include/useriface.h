@@ -133,12 +133,6 @@ public:
     Q_INVOKABLE void updateFwRms(int, bool);
     void updateFwMCURms(int);
 
-    Q_INVOKABLE void setOperLevel(int level);
-    void setOperationLevel(int hp, int mode);
-
-    Q_INVOKABLE void setOperBuzzerMode(int mode);
-    void setOperationBuzzerMode(int hp, int mode);
-
     bool getUpdateStatus() const;
     Q_INVOKABLE void setSystemReboot(bool);
 
