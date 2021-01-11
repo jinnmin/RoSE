@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="MainSettings.qml">MainSettings.qml</file>
+        <file>TextButton.qml</file>
+        <file>ImgButton.qml</file>
+        <file>Keypad.qml</file>
+        <file>SettingsCommon.qml</file>
+        <file>Radio_button.qml</file>
+        <file>TimeSetting.qml</file>
+        <file>WifiSetting.qml</file>
+        <file>AdminUpdateFw.qml</file>
+        <file>AdminRmsUpdateFw.qml</file>
+        <file>FunctionUtility.qml</file>
+        <file>RoundMouseArea.qml</file>
+        <file>ProgressBar.qml</file>
+        <file>ProgressCircle.qml</file>
+        <file>SettingsReports.qml</file>
+        <file>AdminSettings.qml</file>
+        <file>CustomText.qml</file>
+        <file>GradientText.qml</file>
+        <file>RoSE.qml</file>
+        <file>InsertCartridge.qml</file>
+        <file>InspectionStage.qml</file>
+        <file>MountRobot.qml</file>
+        <file>MountRobotEnd.qml</file>
+        <file>TrainingMenu.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>res/font/HelveticaCdBlk.ttf</file>
+        <file>res/font/MyriadPro-Semibold.otf</file>
+        <file>res/font/MyriadPro-Regular.otf</file>
+        <file>res/font/NotoSans-Regular.ttf</file>
+        <file>res/font/NotoSans-Bold.ttf</file>
+        <file>res/font/MyriadPro-Semibold_org.otf</file>
+    </qresource>
+</RCC>
